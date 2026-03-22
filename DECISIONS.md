@@ -56,10 +56,10 @@ A couple of improvements below:
 - Users need to type their email. Ideally user logs in and we have their email, so there's no need to extra proivide that.
 
 ### Async processing
-Currently - promise based. Ideally we introduce a durable queue and worker for better scaling and durability.
+Currently - promise based. Ideally we introduce a queue and worker for better scaling and durability.
 
 ### Notifications
-Frontend currently polls GET jobs every 3 seconds generating unnecessary requests. 
+Frontend currently polls GET job every 3 seconds generating unnecessary requests. 
 Two ideas:
 - SSE - server pushes a done event to the browser the moment the worker finishes to avoid polling
 - Email - send an email when job completes
@@ -70,3 +70,7 @@ Currently everything is handled in memory (jobs, audio). Ideally we store the jo
 ### OpenAI misuse 
 Without rate limiting, a single user could submit hundreds of jobs and exhaust
 the OpenAI API credits. We could add a per-use submission rate-limiting (counter in redis) to track that.
+
+---
+
+![Target state](assets/target%20state.png)
