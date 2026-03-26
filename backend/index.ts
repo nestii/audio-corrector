@@ -113,8 +113,6 @@ app.get('/api/audio/:id', (req, res) => {
 
 export { app };
 
-if (require.main === module) {
-  app.listen(PORT, () => {
-    console.log(`backend running on http://localhost:${PORT}`);
-  });
-}
+app.listen(PORT, () => {
+  console.log(`backend running on http://localhost:${PORT}`);
+});
